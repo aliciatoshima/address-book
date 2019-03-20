@@ -1,47 +1,51 @@
-// Business logic for AddressBook
-var contacts = [];
-var findContacts = contacts.forEach(function(contact){
-      $(".addresses ol").append("<li>" + contact + "</li>")
-    });
 
+//var contacts = [];
+
+// var findContacts = contacts.forEach(function(contact){
+//       $("ul.output").append("<li>" + contact + "</li>")
+//     });
+
+
+// Business logic for AddressBook
 function AddressBook() {
-  debugger;
+  //debugger;
   this.contacts = [];
 }
 
-AddressBook.prototype.addContact = function(contact) {
-  debugger;
-  this.contacts.push(contact)
-}
+// AddressBook.prototype.addContact = function(contact) {
+//   debugger;
+//   this.contacts.push(contact)
+// }
 
 
 // Business logic for contacts
 function Contact(firstName, lastName, phoneNumber) {
-  debugger;
   this.firstName = firstName;
   this.lastName = lastName;
   this.phoneNumber = phoneNumber;
 }
 
 Contact.prototype.fullName = function() {
-  debugger;
   return this.firstName + " " + this.lastName;
 }
 
-
-$(document).ready(function(event){
+// UI Logic?
+$(document).ready(function(){
   debugger;
 
-  $(".address-form form").submit(function(event) {
+  $("form#form").submit(function(event) {
     debugger;
     var firstName = $("input#first-name").val();
     var lastName = $("input#last-name").val();
-    var phoneInput = $("input#phone").val();
-    var newContact = new Contact(firstName, lastName, phoneInput);
+    var phoneNumber = $("input#phone").val();
 
-    AddressBook.addContact(newContact);
-    AddressBook();
-    findContacts();
+    var newContact = new Contact(firstName, lastName, phoneNumber);
+
+    return AddressBook
+    //$("#output").show(newContact);
+    //AddressBook.addContact(newContact);
+    //addressBook();
+    //findContacts();
     event.preventDefault();
     });
 });
